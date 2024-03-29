@@ -7,16 +7,24 @@ const base_url = environment.base_url;
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
 
+export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
+  //----GET CATEGORIES---//
   getCategories() {
 
     const endpoint = `${base_url}/categories`;
-    return this.http.get(endpoint)
+    return this.http.get(endpoint);
+  }
 
+  //----POST CATEGORIES---//
+  saveCategories(body: any) {
+
+    const endpoint = `${base_url}/categories`;
+    return this.http.post(endpoint, body);
 
   }
+
 }
