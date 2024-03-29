@@ -25,6 +25,7 @@ export class CategoryComponent implements OnInit {
   displayedColumn: string[] = ['id', 'name', 'desciption', 'actions'];
   dataSource = new MatTableDataSource<CategoryElement>();
 
+
   //-----List categories------//
   getCategories() {
     this.categoryService.getCategories()
@@ -77,6 +78,26 @@ export class CategoryComponent implements OnInit {
   openSnackBar(message: string, action: string): MatSnackBarRef<SimpleSnackBar> {
     return this.snackBar.open(message, action, { duration: 3200 });
 
+
+  }
+
+  edit(id: number, name: string, description: string) {
+    const dialogRef = this.dialog.open(NewCategoryComponent, {
+      data: { id: id, name: name, description: description }
+
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result == 1) {
+        this.openSnackBar("Categoría actualizada", "Exitosamente");
+        this.getCategories();
+
+      } else if (result == 2) {
+        this.openSnackBar("Se produjo un error al actualizar la categoría", "Error");
+
+      }
+
+    });
 
   }
 
