@@ -1,0 +1,24 @@
+h2{
+  text-align: center;
+}
+.product-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.product-container > *{
+  width: 100%;
+}
+
+.input-file{
+  display: none;
+  padding: 5px ;
+
+}
+
+.subir{
+  padding: 5px 16px;
+  background: #673ab7;
+  border: 0px solid #fff;
+  border-radius: 5px;
+}
