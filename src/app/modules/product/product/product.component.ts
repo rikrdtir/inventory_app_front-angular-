@@ -105,6 +105,9 @@ export class ProductComponent implements OnInit {
     });
 
   }
+  /**
+    * Delete product
+   **/
 
   delete(id: any) {
     const dialogRef = this.dialog.open(ConfirmComponent, {
@@ -121,6 +124,20 @@ export class ProductComponent implements OnInit {
       }
 
     });
+
+  }
+
+  /**
+    * Delete product
+   **/
+  findProduct(name: any) {
+    if (name.length === 0) {
+      return this.getProducts();
+    }
+    this.productService.getProductsByName(name)
+      .subscribe((resp: any) => {
+        this.processProductResponse(resp);
+      })
 
   }
 
