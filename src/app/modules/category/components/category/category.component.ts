@@ -100,9 +100,10 @@ export class CategoryComponent implements OnInit {
 
   }
 
+  //Delete category//
   delete(id: any) {
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: { id: id }
+      data: { id: id, module: "category" }
 
     });
 

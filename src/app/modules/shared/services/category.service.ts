@@ -28,20 +28,21 @@ export class CategoryService {
     return this.http.post(endpoint, body);
 
   }
-  //----PUT CATEGORIES---//
+  //----Update CATEGORIES---//
   UpdateCategory(body: any, id: any) {
 
     const endpoint = `${base_url}/categories/${id}`;
     return this.http.put(endpoint, body);
 
   }
-  //----PUT CATEGORIES---//
+  //----Delete CATEGORIES---//
   deleteCategory(id: any) {
 
     const endpoint = `${base_url}/categories/${id}`;
     return this.http.delete(endpoint);
 
   }
+
   //----PUT CATEGORIES---//
   getCategoryById(id: any) {
 

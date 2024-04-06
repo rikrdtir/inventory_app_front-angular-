@@ -88,7 +88,6 @@ export class NewProductComponent implements OnInit {
           this.dialogRef.close(1);
         }, (error: any) => {
           this.dialogRef.close(2);
-
         })
 
 
