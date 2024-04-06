@@ -51,7 +51,7 @@ export class ProductComponent implements OnInit {
 
       // agregando imagenes y categorias al objeto produco para mostrar
       listProduct.forEach((element: ProductElement) => {
-        element.category = element.category.name;
+        // element.category = element.category.name;
         // element.picture = 'data:image/jpeg;base64,' + element.picture;
         dataProduct.push(element)
       });
@@ -82,6 +82,28 @@ export class ProductComponent implements OnInit {
     return this.snackBar.open(message, action, { duration: 3200 });
   }
 
+
+  /**
+   * edit product
+  **/
+  edit(id: number, name: string, price: number, account: number, category: any, picture: string) {
+
+    const dialogRef = this.dialog.open(NewProductComponent, {
+      data: { id: id, name: name, price: price, account: account, category: category, picture: picture }
+    })
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result == 1) {
+        this.openSnackBar("Producto agregado", "Exitosamente");
+        this.getProducts();
+
+      } else if (result == 2) {
+        this.openSnackBar("Se produjo un error al guardar el producto", "Error");
+      }
+
+    });
+
+  }
 
 
 }
